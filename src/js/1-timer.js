@@ -63,7 +63,7 @@ function stopTimerInterval() {
 
 	changeSelectorClass(btnStop, "disabled");
 	changeSelectorClass(btnStart, timeDelta > 0 ? "normal" : "disabled");
-	changeSelectorClass(inputField, timeDelta > 0 ? "normal" : "disabled");
+	changeSelectorClass(inputField, "normal");
 
 	timerCounter.forEach(el => {
 		el.textContent = "00";
