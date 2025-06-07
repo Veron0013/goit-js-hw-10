@@ -1,26 +1,19 @@
-// Описаний в документації
 import flatpickr from "flatpickr";
-// Додатковий імпорт стилів
 import "flatpickr/dist/flatpickr.min.css";
 
-let userSelectedDate;
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+
+let userSelectedDate = -1;
 let timerId;
 let intervalId;
 
 const btnStart = document.querySelector(".button.start");
 const btnStop = document.querySelector(".button.stop");
 const inputField = document.querySelector(".input_field");
-
-const classTypes = ["normal", "disabled"];
-
 const timerCounter = document.querySelectorAll(".value");
 
-function changeSelectorClass(selector, type) {
-
-	//console.log(selector, type);
-	selector.classList.remove(...classTypes);
-	selector.classList.add(type);
-}
+const classTypes = ["normal", "disabled"];
 
 const options = {
 	enableTime: true,
@@ -37,10 +30,46 @@ const options = {
 	},
 	onClose(selectedDates) {
 		userSelectedDate = selectedDates[0];
+		if (selectedDates[0] <= new Date()) {
+			iziToast.show({
+				message: "Please choose a date in the future",
+				messageColor: 'white',
+				color: '#ef4040',
+				position: 'topCenter', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center,
+				iconUrl: '../img/error.svg',
+			});
+		}
 	},
 };
 
 flatpickr("#datetime-picker", options);
+
+function changeSelectorClass(selector, type) {
+
+	//console.log(selector, type);
+	selector.classList.remove(...classTypes);
+	selector.classList.add(type);
+}
+
+function addLeadingZero(value) {
+	return String(value).padStart(2, "0");
+}
+
+function stopTimerInterval() {
+	if (intervalId) clearInterval(intervalId);
+	if (timerId) clearTimeout(timerId);
+
+	const timeDelta = userSelectedDate - new Date();
+
+	changeSelectorClass(btnStop, "disabled");
+	changeSelectorClass(btnStart, timeDelta > 0 ? "normal" : "disabled");
+	changeSelectorClass(inputField, timeDelta > 0 ? "normal" : "disabled");
+
+	timerCounter.forEach(el => {
+		el.textContent = "00";
+	});
+
+}
 
 function convertMs(ms) {
 	// Number of milliseconds per unit of time
@@ -77,6 +106,8 @@ btnStart.addEventListener("click", (e) => {
 	timerId = setTimeout(() => {
 		changeSelectorClass(btnStart, "normal");
 		changeSelectorClass(inputField, "normal");
+
+		stopTimerInterval();
 	}, timeDelta);
 
 	intervalId = setInterval(() => {
@@ -91,7 +122,7 @@ btnStart.addEventListener("click", (e) => {
 			//console.log(el);
 
 			if (timeToMs[key] !== undefined) {
-				el.textContent = String(timeToMs[key]).padStart(2, "0");
+				el.textContent = addLeadingZero(timeToMs[key]);
 			}
 		});
 
@@ -101,15 +132,5 @@ btnStart.addEventListener("click", (e) => {
 
 btnStop.addEventListener("click", (e) => {
 	e.target.blur();
-	changeSelectorClass(btnStop, "disabled");
-	changeSelectorClass(btnStart, "normal");
-	changeSelectorClass(inputField, "normal");
-
-	if (intervalId) clearInterval(intervalId);
-	if (timerId) clearTimeout(timerId);
-
-	timerCounter.forEach(el => {
-		el.textContent = "00";
-	});
-
+	stopTimerInterval();
 });

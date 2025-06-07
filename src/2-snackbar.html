@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snackbar</title>
     <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
@@ -18,32 +18,40 @@
       highlight-curr="active"
     />
 
-    <main>
-      <div class="container pages_container">
-        <form class="form">
-          <label class="snackbar_form" for delay>
-            Delay (ms)
-          </label>
-          <input class="input_delay" type="number" name="delay" required />
-        
-          <fieldset class="fieldset">
-            <legend class="legend_snackbar">State</legend>
-            <div class="snackbar_options">
-              <label>
-                <input class="radio_snackbar" type="radio" name="state" value="fulfilled" required />
-                Fulfilled
-              </label>
-              <label>
-                <input class="radio_snackbar" type="radio" name="state" value="rejected" required />
-                Rejected
-              </label>
-            </div>
-          </fieldset>
-        
-          <button class="btn_snackbar" type="submit">Create notification</button>
-        </form>
-    </main>
+    <div class="container pages_container">
+      <form class="form">
+        <label class="snackbar_form" for delay> Delay (ms) </label>
+        <input class="input_delay" type="number" name="delay" required />
 
-    <!--<load src="./partials/footer.html" />-->
+        <fieldset class="fieldset">
+          <legend class="legend_snackbar">State</legend>
+          <div class="snackbar_options">
+            <label>
+              <input
+                class="radio_snackbar"
+                type="radio"
+                name="state"
+                value="fulfilled"
+                required
+              />
+              Fulfilled
+            </label>
+            <label>
+              <input
+                class="radio_snackbar"
+                type="radio"
+                name="state"
+                value="rejected"
+                required
+              />
+              Rejected
+            </label>
+          </div>
+        </fieldset>
+
+        <button class="btn_snackbar" type="submit">Create notification</button>
+      </form>
+    </div>
   </body>
+  <script type="module" src="./js/2-snackbar.js"></script>
 </html>
