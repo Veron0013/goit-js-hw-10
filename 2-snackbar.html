@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snackbar</title>
     <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/goit-js-hw-10/2-snackbar.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/styles-wJE1h3vd.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-BbbuE1sJ.js">
     <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-DnQ2UfJ4.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/vendor-CZjNVMTf.css">
   </head>
   <body>
     <header class="header">
@@ -35,47 +39,39 @@
 </header>
 
 
-    <main>
-      <div class="container pages_container">
-        <form class="form">
-          <label class="snackbar_form" for delay>
-            Delay (ms)
-          </label>
-          <input class="input_delay" type="number" name="delay" required />
-        
-          <fieldset class="fieldset">
-            <legend class="legend_snackbar">State</legend>
-            <div class="snackbar_options">
-              <label>
-                <input class="radio_snackbar" type="radio" name="state" value="fulfilled" required />
-                Fulfilled
-              </label>
-              <label>
-                <input class="radio_snackbar" type="radio" name="state" value="rejected" required />
-                Rejected
-              </label>
-            </div>
-          </fieldset>
-        
-          <button class="btn_snackbar" type="submit">Create notification</button>
-        </form>
-    </main>
+    <div class="container pages_container">
+      <form class="form">
+        <label class="snackbar_form" for delay> Delay (ms) </label>
+        <input class="input_delay" type="number" name="delay" required />
 
-    <!--<footer class="footer">
-  <div class="container">
-    <p class="footer-desc">
-      Made with ✨ by
-      <a
-        class="footer-link"
-        href="https://goit.global/ua/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT team
-      </a>
-    </p>
-  </div>
-</footer>
--->
+        <fieldset class="fieldset">
+          <legend class="legend_snackbar">State</legend>
+          <div class="snackbar_options">
+            <label>
+              <input
+                class="radio_snackbar"
+                type="radio"
+                name="state"
+                value="fulfilled"
+                required
+              />
+              Fulfilled
+            </label>
+            <label>
+              <input
+                class="radio_snackbar"
+                type="radio"
+                name="state"
+                value="rejected"
+                required
+              />
+              Rejected
+            </label>
+          </div>
+        </fieldset>
+
+        <button class="btn_snackbar" type="submit">Create notification</button>
+      </form>
+    </div>
   </body>
 </html>
