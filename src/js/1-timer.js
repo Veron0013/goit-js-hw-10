@@ -32,11 +32,13 @@ const options = {
 		userSelectedDate = selectedDates[0];
 		if (selectedDates[0] <= new Date()) {
 			iziToast.show({
+				id: 'error',
+				title: 'Error',
 				message: "Please choose a date in the future",
 				messageColor: 'white',
 				color: '#ef4040',
 				position: 'topCenter',
-				iconUrl: './img/error.svg',
+				//iconUrl: './img/error.svg',
 			});
 		}
 	},

@@ -29,20 +29,25 @@ btn_snackbar.addEventListener("click", (e) => {
 		promise
 			.then(value => {
 				iziToast.show({
+					id: 'success',
+					title: 'Success',
 					message: value,
 					messageColor: 'white',
 					color: '#59a10d',
 					position: 'topRight',
-					iconUrl: 'src/img/success.svg',
+					transitionIn: 'bounceInLeft',
+					//iconUrl: 'https://veron0013.github.io/goit-js-hw-10/src/img/success.svg',
 				});
 			})
 			.catch(error => {
 				iziToast.show({
+					id: 'error',
+					title: 'Error',
 					message: error,
 					messageColor: 'white',
 					color: '#ef4040',
 					position: 'topRight',
-					iconUrl: '/img/error.svg',
+					//iconUrl: '/img/error.svg',
 				});
 			});
 	}
