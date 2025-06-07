@@ -33,7 +33,7 @@ btn_snackbar.addEventListener("click", (e) => {
 					messageColor: 'white',
 					color: '#59a10d',
 					position: 'topRight',
-					iconUrl: '/img/success.svg',
+					iconUrl: 'src/img/success.svg',
 				});
 			})
 			.catch(error => {
