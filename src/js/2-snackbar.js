@@ -11,7 +11,7 @@ btn_snackbar.addEventListener("click", (e) => {
 	const delayMS = Number(input_delay.value);
 	const selected = document.querySelector('.radio_snackbar:checked');
 
-	console.log(selected);
+	//console.log(selected);
 
 	if (delayMS > 0) {
 		const isSuccess = selected.value === "fulfilled";
