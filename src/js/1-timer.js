@@ -36,7 +36,7 @@ const options = {
 				messageColor: 'white',
 				color: '#ef4040',
 				position: 'topCenter',
-				iconUrl: '/img/error.svg',
+				iconUrl: './img/error.svg',
 			});
 		}
 	},
