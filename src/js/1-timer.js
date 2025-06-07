@@ -35,8 +35,8 @@ const options = {
 				message: "Please choose a date in the future",
 				messageColor: 'white',
 				color: '#ef4040',
-				position: 'topCenter', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center,
-				iconUrl: '../img/error.svg',
+				position: 'topCenter',
+				iconUrl: '/img/error.svg',
 			});
 		}
 	},
