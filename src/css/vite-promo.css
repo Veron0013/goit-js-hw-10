@@ -1,11 +1,18 @@
 .vite-promo {
   padding: 50px 0;
 }
+
 .vite-promo-thumb {
   position: relative;
   max-width: 320px;
   margin: 0 auto;
 }
+
+.vite-promo-thumb-container {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .vite-promo-thumb::before {
   content: '';
   position: absolute;
@@ -20,9 +27,11 @@
   background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
   filter: blur(4.5rem);
 }
+
 .main-title {
   text-align: center;
 }
+
 .main-title-gradient {
   display: block;
   font-size: 2em;
@@ -31,15 +40,18 @@
   -webkit-background-clip: text;
   background-clip: text;
 }
+
 @media only screen and (min-width: 768px) {
   .main-title-gradient {
     font-size: 3em;
   }
 }
+
 .main-title-link {
   position: relative;
   letter-spacing: 0.04em;
 }
+
 .main-title-link::before {
   content: '';
   position: absolute;
@@ -52,6 +64,7 @@
   background-color: #41d1ff;
   transition: 200ms ease;
 }
+
 .main-title-link:hover::before,
 .main-title-link:focus::before {
   background-color: #ff6b0a;
@@ -83,7 +96,6 @@
 .vite-promo .link {
   display: inline-block;
   padding: 0.5rem 1.25rem;
-
   font-weight: 500;
   text-align: center;
   white-space: nowrap;
